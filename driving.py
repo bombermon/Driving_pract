@@ -61,9 +61,10 @@ def tr_homothety(figure, x0, y0, k):
     for i in figure:
         p0x = i[0]
         p0y = i[1]
-        ax = (((dx * p0x + dy * p0y) * -dx) - (dy * (dy * p1x - dx * p1y))) / (-dx * dx - dy * dy)
-        ay = ((dx * (dy * p1y - dx * p1x)) - (dy * (dx * p0x - dy * p0y))) / (-dx * dx - dy * dy)
-        x = ax + ()
+        ax = (((dx * p0x + dy * p0y) * -1 * dx) - (dy * (dy * p1x - dx * p1y))) / (-1 * dx * dx - dy * dy)
+        ay = ((dx * (dy * p1y - dx * p1y)) - (dy * (dx * p0x + dy * p0y))) / (-1 * dx * dx - dy * dy)
+        x = ax + (ax - p0x)
+        y = ay + (ay - p0y)
         result_figure.append((x, y))
     return tuple(result_figure)"""
 
