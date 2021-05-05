@@ -39,7 +39,7 @@ def tr_rotate(figure, x0, y0, radian):
         result_figure.append(((x - x0) * cos - (y - y0) * sin + x0, (x - x0) * sin + (y - y0) * cos + y0))
     return tuple(result_figure)
 
-"""def tr_symmetry(figure, p1x, p1y, p2x, p2y):
+def tr_symmetry(figure, p1x, p1y, p2x, p2y):
     dx = p2x - p1x
     dy = p2y - p1y
     result_figure = []
@@ -48,9 +48,9 @@ def tr_rotate(figure, x0, y0, radian):
         p0y = i[1]
         ax = (((dx * p0x + dy * p0y) * -dx) - (dy * (dy * p1x - dx * p1y))) / (-dx * dx - dy * dy)
         ay = ((dx * (dy * p1y - dx * p1x)) - (dy * (dx * p0x - dy * p0y))) / (-dx * dx - dy * dy)
-        x = ax
+        x = ax + ()
         result_figure.append((x, y))
-    return tuple(result_figure)"""
+    return tuple(result_figure)
 
 
 def plot(a):
