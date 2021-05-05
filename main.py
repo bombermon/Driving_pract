@@ -1,3 +1,6 @@
 import driving as dr
+import itertools
 
-dr.show()
+a = tuple(itertools.islice(dr.gen_rectangle(), 5))
+b = tuple(itertools.islice(dr.ge))
+print(a)
