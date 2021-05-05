@@ -3,7 +3,7 @@ import itertools
 import math
 
 a = tuple(itertools.islice(dr.gen_rectangle(), 13))
-a = tuple(map(dr.tr_rotate, a, [0]*len(a), [0]*len(a), [math.pi / 3]*len(a)))
+a = tuple(map(dr.tr_homothety, a, [5]*len(a), [5]*len(a), [1]*len(a)))
 print(a)
 dr.plot(a)
 dr.show()
