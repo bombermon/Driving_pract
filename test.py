@@ -7,6 +7,6 @@ plt.show()
 a = list(map(lambda x: x + 2, a))
 print(a)
 b = [1, 2]
-test2.add(b)
+test2.add(b)    
 b[0] = 3
 test2.o_print()"""
