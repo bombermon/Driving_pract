@@ -58,8 +58,14 @@ def tr_symmetry(figure, p1x, p1y, p2x, p2y):
     return tuple(result_figure)
 
 
+def flt_angle_point(figure, point):
+    for i in figure:
+        if i[0] == point[0] and i[1] == point[1]:
+            return True
+    return False
+
+
 def plot(a):
-    plt.clf()
     b = tuple(a)
     for i in b:
         for j in range(len(i)):
@@ -67,6 +73,10 @@ def plot(a):
                 plt.plot((i[j][0], i[j + 1][0]), (i[j][1], i[j + 1][1]), color="black")
             else:
                 plt.plot((i[j][0], i[0][0]), (i[j][1], i[0][1]), color="black")
+
+
+def clean():
+    plt.clf()
 
 
 def show():
