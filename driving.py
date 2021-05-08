@@ -138,6 +138,32 @@ def flt_point_inside(x, y, figure):
         return True
 
 
+def flt_convex_polygon(figure):
+    def cross_product(a, b, c):
+        return (a[0] - b[0]) * (b[1] - c[1]) - (a[1] - b[1]) * (b[0] - c[0])
+
+    n = len(figure)
+    if n < 4:
+        return True
+
+    found_direction = False
+    clockwise_direction = False
+
+    for i in range(n):
+        current_cross_product = cross_product(figure[i], figure[(i + 1) % n], figure[(i + 2) % n])
+        if current_cross_product != 0:
+            if not found_direction:
+                found_direction = True
+                if current_cross_product < 0:
+                    clockwise_direction = True
+            else:
+                current_clockwise_direction = current_cross_product < 0
+                if current_clockwise_direction != clockwise_direction:
+                    return False
+
+    return True
+
+
 def plot(a):
     b = tuple(a)
     for i in b:
