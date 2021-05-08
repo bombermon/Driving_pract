@@ -13,6 +13,7 @@ def get_triangle_area(point1, point2, point3):
     p = (a + b + c) / 2
     return math.sqrt(p * (p - a) * (p - b) * (p - c))
 
+
 def get_any_area(figure):
     n = len(figure)
     plus = 0
@@ -122,6 +123,19 @@ def flt_short_side(figure, side):
         if current_side < side:
             return True
     return False
+
+
+def flt_point_inside(x, y, figure):
+    c = 0
+    for i in range(len(figure)):
+        if (((figure[i][1] <= y and y < figure[i - 1][1]) or (figure[i - 1][1] <= y and y < figure[i][1])) and
+                (x > (figure[i - 1][0] - figure[i][0]) *
+                 (y - figure[i][1]) / (figure[i - 1][1] - figure[i][1]) + figure[i][0])):
+            c = 1 - c
+    if c == 0:
+        return False
+    elif c == 1:
+        return True
 
 
 def plot(a):
