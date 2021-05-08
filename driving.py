@@ -75,6 +75,15 @@ def flt_angle_point(figure, point):
     return False
 
 
+def flt_short_side(figure, side):
+    n = len(figure)
+    for i in range(n):
+        current_side = get_length(figure[i], figure[(i + 1) % n])
+        if current_side < side:
+            return True
+    return False
+
+
 def plot(a):
     b = tuple(a)
     for i in b:

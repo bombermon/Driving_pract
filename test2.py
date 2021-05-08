@@ -1,9 +1,4 @@
-a = []
+import driving as dr
 
-def o_print():
-    global a
-    print(a)
-
-def add(content):
-    global a
-    a.append(content)
+tirangle1 = ((0, 0), (0, 1), (1, 1))
+print(dr.flt_short_side(tirangle1, 0.3))

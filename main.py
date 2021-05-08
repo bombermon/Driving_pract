@@ -6,8 +6,8 @@ import math
 5:
     1
     2 angle point DONE  
-    3
-    4
+    3 
+    4 short side DONE
     5
     6
     
