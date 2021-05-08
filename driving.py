@@ -2,6 +2,16 @@ import matplotlib.pyplot as plt
 import math
 
 
+def get_length(point1, point2):
+    return math.sqrt(((point1[0] - point2[0]) ** 2) + ((point1[1] - point2[1]) ** 2))
+
+
+def get_triangle_area(point1, point2, point3):
+    a, b, c = get_length(point1, point2), get_length(point2, point3), get_length(point3, point1)
+    p = (a + b + c) / 2
+    return math.sqrt(p * (p - a) * (p - b) * (p - c))
+
+
 def gen_rectangle():
     counter = 0
     while True:
@@ -93,6 +103,15 @@ def flt_square(figure, area):
         return True
     else:
         return False
+
+def flt_short_side(figure, side):
+    n = len(figure)
+    for i in range(n):
+        current_side = get_length(figure[i], figure[(i + 1) % n])
+        if current_side < side:
+            return True
+    return False
+
 
 def plot(a):
     b = tuple(a)
