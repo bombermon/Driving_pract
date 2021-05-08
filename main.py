@@ -4,7 +4,7 @@ import math
 
 """ TODO list, 18 left
 5:
-    1
+    1 convex polygon Rusik
     2 angle point DONE  
     3 
     4 short side DONE
