@@ -2,7 +2,7 @@ import driving as dr
 import itertools
 import math
 
-""" TODO list, 18 left
+""" TODO list, 13 left
 5:
     1 convex polygon DONE
     2 angle point DONE  
