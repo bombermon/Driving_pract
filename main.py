@@ -6,7 +6,7 @@ import math
 5:
     1 convex polygon DONE
     2 angle point DONE  
-    3 
+    3 square DONE
     4 short side DONE
     5
     6 polygon angles inside RUSIK

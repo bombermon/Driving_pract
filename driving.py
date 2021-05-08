@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import math
 
 
+# НАЧАЛО ВСПОМОГАТЕЛЬНЫХ ------------------------------------------------------------------------------
+
 def get_length(point1, point2):
     return math.sqrt(((point1[0] - point2[0]) ** 2) + ((point1[1] - point2[1]) ** 2))
 
@@ -10,6 +12,24 @@ def get_triangle_area(point1, point2, point3):
     a, b, c = get_length(point1, point2), get_length(point2, point3), get_length(point3, point1)
     p = (a + b + c) / 2
     return math.sqrt(p * (p - a) * (p - b) * (p - c))
+
+def get_any_area(figure):
+    n = len(figure)
+    plus = 0
+    minus = 0
+    for i in range(0, n):
+        x1 = figure[i][0]
+        y2 = figure[(i + 1) % n][1]
+        x2 = figure[i][1]
+        y1 = figure[(i + 1) % n][0]
+        plus += x1 * y2
+        minus += x2 * y1
+
+    s = abs(plus - minus) / 2
+    return s
+
+
+# КОНЕЦ ВСПОМОГАТЕЛЬНЫХ -------------------------------------------------------------------------------
 
 
 def gen_rectangle():
@@ -53,7 +73,18 @@ def tr_rotate(figure, x0, y0, radian):
     return tuple(result_figure)
 
 
-def tr_symmetry(figure, p1x, p1y, p2x, p2y):
+def tr_homothety(figure, x0, y0, k):
+    result_figure = []
+    for i in figure:
+        x = i[0]
+        y = i[1]
+        new_vector = [(x - x0) * k, (y - y0) * k]
+        new_koords = (new_vector[0] + x0, new_vector[1] + y0)
+        result_figure.append((new_koords))
+    return tuple(result_figure)
+
+
+"""def tr_symmetry(figure, p1x, p1y, p2x, p2y):
     dx = p2x - p1x
     dy = p2y - p1y
     result_figure = []
@@ -65,7 +96,7 @@ def tr_symmetry(figure, p1x, p1y, p2x, p2y):
         x = ax + (ax - p0x)
         y = ay + (ay - p0y)
         result_figure.append((x, y))
-    return tuple(result_figure)
+    return tuple(result_figure)"""
 
 
 def flt_angle_point(figure, point):
@@ -73,6 +104,15 @@ def flt_angle_point(figure, point):
         if i[0] == point[0] and i[1] == point[1]:
             return True
     return False
+
+
+def flt_square(figure, area):
+    cur_area = get_any_area(figure)
+
+    if cur_area < area:
+        return True
+    else:
+        return False
 
 
 def flt_short_side(figure, side):
