@@ -4,12 +4,12 @@ import math
 
 """ TODO list, 18 left
 5:
-    1 convex polygon Rusik
+    1 convex polygon DONE
     2 angle point DONE  
     3 
     4 short side DONE
     5
-    6
+    6 polygon angles inside RUSIK
     
 
 7:
