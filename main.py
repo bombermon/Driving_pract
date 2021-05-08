@@ -9,7 +9,7 @@ import math
     3 square DONE
     4 short side DONE
     5 point inside DONE
-    6 polygon angles inside RUSIK
+    6 polygon angles inside DONE
     
 
 7:

@@ -85,7 +85,7 @@ def tr_homothety(figure, x0, y0, k):
     return tuple(result_figure)
 
 
-"""def tr_symmetry(figure, p1x, p1y, p2x, p2y):
+def tr_symmetry(figure, p1x, p1y, p2x, p2y):
     dx = p2x - p1x
     dy = p2y - p1y
     result_figure = []
@@ -97,7 +97,7 @@ def tr_homothety(figure, x0, y0, k):
         x = ax + (ax - p0x)
         y = ay + (ay - p0y)
         result_figure.append((x, y))
-    return tuple(result_figure)"""
+    return tuple(result_figure)
 
 
 def flt_angle_point(figure, point):
@@ -125,7 +125,9 @@ def flt_short_side(figure, side):
     return False
 
 
-def flt_point_inside(x, y, figure):
+def flt_point_inside(figure, point):
+    x = point[0]
+    y = point[1]
     c = 0
     for i in range(len(figure)):
         if (((figure[i][1] <= y and y < figure[i - 1][1]) or (figure[i - 1][1] <= y and y < figure[i][1])) and
@@ -162,6 +164,13 @@ def flt_convex_polygon(figure):
                     return False
 
     return True
+
+
+def flt_polygon_angles_inside(figure, figure_to_cheek):
+    for i in figure_to_cheek:
+        if flt_point_inside(figure, i):
+            return True
+    return False
 
 
 def plot(a):
