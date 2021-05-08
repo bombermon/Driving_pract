@@ -125,7 +125,9 @@ def flt_short_side(figure, side):
     return False
 
 
-def flt_point_inside(x, y, figure):
+def flt_point_inside(figure, point):
+    x = point[0]
+    y = point[1]
     c = 0
     for i in range(len(figure)):
         if (((figure[i][1] <= y and y < figure[i - 1][1]) or (figure[i - 1][1] <= y and y < figure[i][1])) and
