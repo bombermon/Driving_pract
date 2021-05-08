@@ -75,6 +75,24 @@ def flt_angle_point(figure, point):
             return True
     return False
 
+def flt_square(figure, area):
+    n = len(figure)
+    plus = 0
+    minus = 0
+    for i in range(0, n):
+        x1 = figure[i][0]
+        y2 = figure[(i + 1) % n][1]
+        x2 = figure[i][1]
+        y1 = figure[(i + 1) % n][0]
+        plus += x1 * y2
+        minus += x2 * y1
+
+    s = abs(plus - minus) / 2
+
+    if s < area:
+        return True
+    else:
+        return False
 
 def plot(a):
     b = tuple(a)
