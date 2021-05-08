@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import math
 
 
+# НАЧАЛО ВСПОМОГАТЕЛЬНЫХ ------------------------------------------------------------------------------
+
 def get_length(point1, point2):
     return math.sqrt(((point1[0] - point2[0]) ** 2) + ((point1[1] - point2[1]) ** 2))
 
@@ -10,6 +12,24 @@ def get_triangle_area(point1, point2, point3):
     a, b, c = get_length(point1, point2), get_length(point2, point3), get_length(point3, point1)
     p = (a + b + c) / 2
     return math.sqrt(p * (p - a) * (p - b) * (p - c))
+
+def get_any_area(figure):
+    n = len(figure)
+    plus = 0
+    minus = 0
+    for i in range(0, n):
+        x1 = figure[i][0]
+        y2 = figure[(i + 1) % n][1]
+        x2 = figure[i][1]
+        y1 = figure[(i + 1) % n][0]
+        plus += x1 * y2
+        minus += x2 * y1
+
+    s = abs(plus - minus) / 2
+    return s
+
+
+# КОНЕЦ ВСПОМОГАТЕЛЬНЫХ -------------------------------------------------------------------------------
 
 
 def gen_rectangle():
@@ -31,7 +51,7 @@ def gen_hexagon():
     while True:
         n = 2
         yield (0 + counter * n, 0.5), (0.25 + counter * n, 0.067), (0.75 + counter * n, 0.067), (
-        1 + counter * n, 0.5), (0.75 + counter * n, 1 - 0.067), (0.25 + counter * n, 1 - 0.067)
+            1 + counter * n, 0.5), (0.75 + counter * n, 1 - 0.067), (0.25 + counter * n, 1 - 0.067)
         counter += 1
 
 
@@ -85,24 +105,15 @@ def flt_angle_point(figure, point):
             return True
     return False
 
+
 def flt_square(figure, area):
-    n = len(figure)
-    plus = 0
-    minus = 0
-    for i in range(0, n):
-        x1 = figure[i][0]
-        y2 = figure[(i + 1) % n][1]
-        x2 = figure[i][1]
-        y1 = figure[(i + 1) % n][0]
-        plus += x1 * y2
-        minus += x2 * y1
+    cur_area = get_any_area(figure)
 
-    s = abs(plus - minus) / 2
-
-    if s < area:
+    if cur_area < area:
         return True
     else:
         return False
+
 
 def flt_short_side(figure, side):
     n = len(figure)

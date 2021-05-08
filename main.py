@@ -6,7 +6,7 @@ import math
 5:
     1 convex polygon Rusik
     2 angle point DONE  
-    3 
+    3 square DONE
     4 short side DONE
     5
     6
