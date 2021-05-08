@@ -8,7 +8,7 @@ import math
     2 angle point DONE  
     3 square DONE
     4 short side DONE
-    5
+    5 point inside DONE
     6 polygon angles inside DONE
     
 
