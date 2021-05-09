@@ -17,11 +17,11 @@ import math
     2
     
 8:
-    1
-    2
-    3
-    4
-    5
+    1 origin nearest DONE
+    2 max side DONE
+    3 min area DONE
+    4 perimeter DONE
+    5 area DONE
 
 2:
     4

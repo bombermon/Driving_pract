@@ -30,6 +30,13 @@ def get_any_area(figure):
     return s
 
 
+def get_perimeter(figure):
+    n = len(figure)
+    perimeter = 0
+    for i in range(n):
+        perimeter += get_length(figure[i], figure[(i + 1) % n])
+    return perimeter
+
 # КОНЕЦ ВСПОМОГАТЕЛЬНЫХ -------------------------------------------------------------------------------
 
 
@@ -171,6 +178,41 @@ def flt_polygon_angles_inside(figure, figure_to_cheek):
         if flt_point_inside(figure, i):
             return True
     return False
+
+
+def agr_origin_nearest(origin_nearest_point, figure):
+    min_length = get_length(origin_nearest_point, (0, 0))
+    for i in figure:
+        current_length = get_length(i, (0, 0))
+        if current_length < min_length:
+            origin_nearest_point = i
+            min_length = current_length
+    return origin_nearest_point
+
+
+def agr_max_side(max_side, figure):
+    n = len(figure)
+    for i in range(n):
+        current_side = get_length(figure[i], figure[(i + 1) % n])
+        if current_side > max_side:
+            max_side = current_side
+    return max_side
+
+
+def agr_min_area(min_area, figure):
+    current_area = get_any_area(figure)
+    if current_area < min_area:
+        min_area = current_area
+    return min_area
+
+
+def agr_perimeter(previous_perimeters_sum, figure):
+    return previous_perimeters_sum + get_perimeter(figure)
+
+
+def agr_area(previous_area_sum, figure):
+    return previous_area_sum + get_any_area(figure)
+
 
 
 def plot(a):
