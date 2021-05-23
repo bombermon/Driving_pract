@@ -56,5 +56,3 @@ def task_4_1():
     dr.show()
     dr.clean()
 
-
-task_4_1()
