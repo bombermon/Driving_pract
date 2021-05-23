@@ -24,8 +24,8 @@ import math
     
 4:
     1 DONE
-    2
-    3
+    2 DONE
+    3 DONE
     4
     
 6:
@@ -74,3 +74,20 @@ def task_4_2():
     dr.show()
     dr.clean()
 
+
+def task_4_3():
+    n = 3
+
+    first_line = list(itr.islice(dr.gen_triangle(), n))
+    second_line = list(itr.islice(dr.gen_triangle(), n))
+
+    second_line = map(dr.tr_symmetry, second_line, [0] * n, [1.1] * n, [1] * n, [1.1] * n)
+
+    dr.plot(first_line)
+    dr.plot(second_line)
+
+    dr.show()
+    dr.clean()
+
+
+task_4_3()
