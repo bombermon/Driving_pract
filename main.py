@@ -57,8 +57,8 @@ def task_2_4():
     a = tuple(itr.islice(dr.gen_triangle(), 2))
     a = tuple(map(dr.tr_translate, a, [0]*2, [1.5]*2))
     b = tuple(itr.islice(dr.gen_hexagon(), 3))
-    c = tuple(itr.islice(dr.gen_rectangle(), 2))
-    c = tuple(map(dr.tr_translate, c, [0] * 2, [-1.5] * 2))
+    c = tuple(itr.islice(dr.gen_rectangle(), 3))
+    c = tuple(map(dr.tr_translate, c, [0] * 3, [-1.5] * 3))
     dr.plot(a)
     dr.plot(b)
     dr.plot(c)
@@ -192,3 +192,8 @@ def task_6_3():
 
     dr.show()
     dr.clean()
+
+
+if __name__ == '__main__':
+    pass
+    # ПИШЕМ СЮДА ЗАДАНИЯ!
