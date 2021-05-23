@@ -1,5 +1,5 @@
 import driving as dr
-import itertools
+import itertools as itr
 import math
 
 """ TODO list, 13 left
@@ -11,10 +11,6 @@ import math
     5 point inside DONE
     6 polygon angles inside DONE
     
-
-7:
-    1
-    2
     
 8:
     1 origin nearest DONE
@@ -27,7 +23,7 @@ import math
     4
     
 4:
-    1
+    1 DONE
     2
     3
     4
@@ -38,10 +34,27 @@ import math
 
 """
 
-a = tuple(itertools.islice(dr.gen_triangle(), 3))
-a = tuple(map(dr.tr_symmetry, a, [0]*len(a), [0]*len(a), [1]*len(a), [1]*len(a)))
-c = [((0, 0), (0, 1), (1, 1)), ((2, 0), (2, 1), (3, 1))]
-b = tuple(filter(lambda x: dr.flt_angle_point(x, (0, 0)), c))
-dr.plot(a)
-dr.plot(b)
-dr.show()
+
+def task_4_1():
+    n = 10
+
+    first_line = list(itr.islice(dr.gen_rectangle(), n))
+    second_line = list(itr.islice(dr.gen_rectangle(), n))
+    third_line = list(itr.islice(dr.gen_rectangle(), n))
+
+    first_line = map(dr.tr_rotate, first_line, [10]*n, [0]*n, [math.pi/4]*n)
+    second_line = map(dr.tr_rotate, second_line, [10] * n, [0] * n, [math.pi / 4] * n)
+    third_line = map(dr.tr_rotate, third_line, [10] * n, [0] * n, [math.pi / 4] * n)
+
+    first_line = map(dr.tr_translate, first_line, [0]*n, [5]*n)
+    third_line = map(dr.tr_translate, third_line, [0]*n, [-5]*n)
+
+    dr.plot(first_line)
+    dr.plot(second_line)
+    dr.plot(third_line)
+
+    dr.show()
+    dr.clean()
+
+
+task_4_1()
