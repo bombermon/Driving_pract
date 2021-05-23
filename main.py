@@ -55,8 +55,10 @@ def task_2_3():
 
 def task_2_4():
     a = tuple(itr.islice(dr.gen_triangle(), 2))
+    a = tuple(map(dr.tr_translate, a, [0]*2, [1.5]*2))
     b = tuple(itr.islice(dr.gen_hexagon(), 3))
     c = tuple(itr.islice(dr.gen_rectangle(), 2))
+    c = tuple(map(dr.tr_translate, c, [0] * 2, [-1.5] * 2))
     dr.plot(a)
     dr.plot(b)
     dr.plot(c)
@@ -97,6 +99,7 @@ def task_3_4():
     dr.plot(fig)
     dr.plot(fig1)
     dr.show()
+
 
 def task_4_1():
     n = 10
@@ -153,6 +156,17 @@ def task_4_3():
     dr.clean()
 
 
+def task_4_4():
+    fig = tuple(itr.islice(dr.gen_rectangle(), 10))
+    n = len(fig)
+    fig = tuple(map(dr.tr_rotate, fig, [0] * n, [0] * n, [math.pi / 4] * n))
+    fig1 = tuple(map(dr.tr_homothety, fig, [0] * n, [0] * n, [2] * n))
+    fig1 = tuple(map(dr.tr_symmetry, fig1, [0] * n, [0] * n, [-1] * n, [1] * n))
+    dr.plot(fig)
+    dr.plot(fig1)
+    dr.show()
+
+
 def task_6_3():
     n = 30
 
@@ -178,18 +192,3 @@ def task_6_3():
 
     dr.show()
     dr.clean()
-
-
-
-def task_4_4():
-    fig = tuple(itr.islice(dr.gen_rectangle(), 10))
-    n = len(fig)
-    fig = tuple(map(dr.tr_rotate, fig, [0] * n, [0] * n, [math.pi / 4] * n))
-    fig1 = tuple(map(dr.tr_homothety, fig, [0] * n, [0] * n, [2] * n))
-    fig1 = tuple(map(dr.tr_symmetry, fig1, [0] * n, [0] * n, [-1] * n, [1] * n))
-    dr.plot(fig)
-    dr.plot(fig1)
-    dr.show()
-
-
-task_4_4()
